@@ -1,11 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '../Header/Header';
-import Shop from '../Shop/Shop';
+
 const Main = () => {
     return (
         <div>
+            {/* Static part */}
             <Header></Header>
-            <Shop></Shop>
+            {/* Dynamic part */}
+            <Outlet></Outlet>
         </div>
     );
 };
