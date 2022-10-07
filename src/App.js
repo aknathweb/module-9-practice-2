@@ -1,14 +1,24 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Shop from './components/Shop/Shop';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Main from './components/Layout/Main';
 
-function App() {
+const App = () => {
+  //crate browser router
+  const router = createBrowserRouter(
+    [
+      {
+        path: '/',
+        element: <Main></Main>
+      }
+    ]
+  )
+
   return (
     <div>
-      <Header></Header>
-      <Shop></Shop>
+      {/* set router provider */}
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
-}
+};
 
 export default App;
