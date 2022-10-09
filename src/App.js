@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import About from './components/About/About';
 import Inventory from './components/Inventory/Inventory';
 import Main from './components/Layout/Main';
+import { productsAndCartLoader } from './components/Loaders/productsAndCartLoader';
 import Orders from './components/Orders/Orders';
 import Shop from './components/Shop/Shop';
 
@@ -16,10 +17,13 @@ const App = () => {
         children: [ //Dynamic part
           {
             path: '/',
+            loader:()=>fetch('products.json'),
             element: <Shop></Shop>
           },
           {
             path: '/orders',
+            //load manual create function data
+            loader:productsAndCartLoader,
             element: <Orders></Orders>
           },
           {
